@@ -1,7 +1,7 @@
 # Sales App
 
 ````
-Plataforma demo para B2B
+Demo plataform for B2B clients
 ````
 
 ## Build Setup

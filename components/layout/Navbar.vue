@@ -41,7 +41,9 @@ export default {
       this.$router.push({ name: 'index' })
     },
     toggleMobileDrawer () {
-      this.$nuxt.$emit('toggleMobileDrawer')
+      if (this.$nuxt) {
+        this.$nuxt.$emit('toggleMobileDrawer')
+      }
     }
   }
 }

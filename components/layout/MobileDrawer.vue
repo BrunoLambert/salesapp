@@ -41,12 +41,16 @@ export default {
     buttons: getNavBarButtons()
   }),
   created () {
-    this.$nuxt.$on('toggleMobileDrawer', () => {
-      this.opened = !this.opened
-    })
+    if (this.$nuxt) {
+      this.$nuxt.$on('toggleMobileDrawer', () => {
+        this.opened = !this.opened
+      })
+    }
   },
   destroyed () {
-    this.$nuxt.$off('toggleMobileDrawer')
+    if (this.$nuxt) {
+      this.$nuxt.$off('toggleMobileDrawer')
+    }
   },
   methods: {
     handleLogout () {

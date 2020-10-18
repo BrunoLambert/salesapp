@@ -1,9 +1,9 @@
 <template>
-  <v-layout row wrap>
-    <v-flex xs12 md4 xl2>
+  <v-layout row wrap class="justify-center">
+    <v-flex xs11 sm10 md3 xl2>
       <user-card />
     </v-flex>
-    <v-flex xs12 md8 xl10 class="pl-md-6">
+    <v-flex xs11 md9 xl10 class="mt-6 mt-md-0 pl-xl-6 pl-md-12">
       <h1>Recent orders</h1>
       <order-list />
     </v-flex>

@@ -14,7 +14,7 @@
       <p>Address: <b>{{ user.address }}</b></p>
     </v-card-text>
     <v-divider />
-    <v-card-text>
+    <v-card-text class="pb-6">
       <h3>
         <v-icon class="mr-2">
           mdi-cog

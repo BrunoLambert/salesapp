@@ -1,13 +1,24 @@
 <template>
   <v-card elevation="4" class="order-card" :class="{'list':list}" @click="openOrderDetails">
     <v-card-text>
-      <v-layout row wrap class="px-3 align-center">
-        <v-flex xs12 md4 xl3 class="order-numbers-data">
+      <v-layout row wrap class="px-3 align-sm-center">
+        <v-flex xs6 sm12 md4 xl3 class="order-numbers-data mb-3 mb-sm-6 mb-md-0">
           <h3>Purchase Order:</h3>
           <h2>{{ order.header.number }}</h2>
           <small>SerialME {{ order.header.serial }}</small>
         </v-flex>
-        <v-flex xs12 md5 xl6>
+        <v-flex xs6 class="hidden-sm-and-up text-right">
+          <h3 class="mb-0">
+            <b>{{ formatCurrency(order.header) }}</b>
+          </h3>
+          <p class="mb-0">
+            {{ order.header.status }}
+          </p>
+          <p class="mb-0">
+            {{ $moment(order.header.createdAt).format('DD-MM-YYYY') }}
+          </p>
+        </v-flex>
+        <v-flex xs12 sm6 md5 xl6 class="mt-3 mt-sm-0">
           <h1 class="mb-4">
             {{ order.header.buyer }}
           </h1>
@@ -36,7 +47,7 @@
             <span>{{ order.header.contact.fax }}</span>
           </p>
         </v-flex>
-        <v-flex xs12 md3 xl3 class="text-right">
+        <v-flex xs4 sm6 md3 xl3 class="text-right hidden-xs-only">
           <h2 class="mb-2">
             <b>{{ formatCurrency(order.header) }}</b>
           </h2>
@@ -53,7 +64,7 @@
               <h5>Supplier</h5>
               <h3>{{ order.supplier.name }} <small>Code #{{ order.supplier.code }}</small></h3>
             </v-flex>
-            <v-flex>
+            <v-flex class="mb-4 mb-sm-0">
               <p>{{ order.supplier.document.type }}: {{ order.supplier.document.value }}</p>
               <v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">
@@ -99,8 +110,8 @@
           mdi-chevron-down
         </v-icon>Addresses
       </h2>
-      <v-layout row wrap class="px-4">
-        <v-flex v-for="(address, addressIndex) in order.addresses" :key="addressIndex" xs12 md4 class="px-3">
+      <v-layout row wrap class="px-md-4">
+        <v-flex v-for="(address, addressIndex) in order.addresses" :key="addressIndex" xs12 md4 class="px-3 mb-2 mb-md-0">
           <v-card elevation="4" class="address-card">
             <v-card-text>
               <p><small>{{ address.label }}</small></p>
@@ -168,6 +179,7 @@ export default {
 .order-card {
   transition: all 0.5s;
   max-width: 1300px;
+  height: 100%;
   margin: auto;
   &:not(.list) {
     pointer-events: none !important;

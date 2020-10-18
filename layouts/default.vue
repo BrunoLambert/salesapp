@@ -2,6 +2,7 @@
   <v-app>
     <v-main>
       <navbar />
+      <mobile-drawer v-if="$vuetify.breakpoint.xsOnly" />
       <v-container>
         <nuxt />
       </v-container>
@@ -17,9 +18,11 @@
 
 <script>
 import Navbar from '~/components/layout/Navbar'
+import MobileDrawer from '~/components/layout/MobileDrawer'
 export default {
   components: {
-    Navbar
+    Navbar,
+    MobileDrawer
   }
 }
 </script>

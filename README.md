@@ -1,4 +1,8 @@
-# sales-apps
+# Sales App
+
+````
+Plataforma demo para B2B
+````
 
 ## Build Setup
 
@@ -18,3 +22,9 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+## Login
+
+````
+Login isn't working properly. So you can just click on the button to login or input anything in both fields.
+````

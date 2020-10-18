@@ -26,3 +26,7 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 ## Login
 
 Login isn't working properly. So you can just click on the button to login or input anything in both fields.
+
+## Tests
+
+Tests are covering just the basics.
